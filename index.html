@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation - Shahzad & Farha</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-gold-light: #fdfaf4;
+            --accent-gold: #bfa15f;
+            --text-dark: #2a2a2a;
+            --text-muted: #666666;
+        }
+
+        body {
+            background-color: var(--bg-gold-light);
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--text-dark);
+        }
+
+        .font-arabic { font-family: 'Amiri', serif; }
+        .font-script { font-family: 'Pinyon Script', cursive; }
+        .font-sans-labels { font-family: 'Montserrat', sans-serif; }
+
+        /* Floating Golden Petal Animation */
+        .floating-petal {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.18;
+            z-index: 1;
+            animation: driftUp 16s infinite linear;
+        }
+
+        @keyframes driftUp {
+            0% { transform: translateY(105vh) translateX(0) rotate(0deg); }
+            50% { transform: translateY(50vh) translateX(50px) rotate(180deg); }
+            100% { transform: translateY(-10vh) translateX(-20px) rotate(360deg); }
+        }
+
+        /* Luxury Card Border Frame Style */
+        .luxury-frame {
+            border: 1px solid rgba(191, 161, 95, 0.25);
+            position: relative;
+        }
+        .luxury-frame::before {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 0.5px solid rgba(191, 161, 95, 0.15);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen overflow-x-hidden flex flex-col items-center justify-center px-4 py-8 sm:py-16 selection:bg-amber-100">
+
+    <div class="fixed top-0 left-0 w-32 sm:w-48 h-32 sm:h-48 opacity-20 pointer-events-none z-0 bg-contain bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop'); transform: scaleX(-1);"></div>
+    <div class="fixed bottom-0 right-0 w-32 sm:w-48 h-32 sm:h-48 opacity-20 pointer-events-none z-0 bg-contain bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop');"></div>
+
+    <div class="floating-petal text-amber-600 text-xl" style="left: 8%; animation-delay: 0s; animation-duration: 14s;">🍃</div>
+    <div class="floating-petal text-amber-700 text-lg" style="left: 28%; animation-delay: 3s; animation-duration: 22s;">✨</div>
+    <div class="floating-petal text-amber-600 text-2xl" style="left: 60%; animation-delay: 1s; animation-duration: 18s;">🍃</div>
+    <div class="floating-petal text-amber-700 text-base" style="left: 85%; animation-delay: 6s; animation-duration: 13s;">✨</div>
+
+    <div class="w-full max-w-2xl bg-white/80 backdrop-blur-sm p-3 rounded-xs shadow-2xl z-10 animate__animated animate__fadeInUp">
+        <div class="luxury-frame p-6 sm:p-14 text-center bg-gradient-to-b from-stone-50/40 via-white to-stone-50/20">
+            
+            <div class="font-arabic text-3xl sm:text-4xl tracking-wide text-amber-900/90 mb-1 animate__animated animate__fadeIn animate__delay-1s">
+                بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
+            </div>
+            <p class="font-sans-labels text-[10px] tracking-[0.18em] text-stone-400 font-light lowercase italic mb-8 animate__animated animate__fadeIn animate__delay-1s">
+                "In the name of Allah, the most beneficent and merciful"
+            </p>
+
+            <div class="space-y-1 mb-8 text-stone-800 animate__animated animate__fadeIn animate__delay-1s">
+                <h3 class="text-xl sm:text-2xl font-medium tracking-wide">Mr. Shahul Hameed <span class="text-base font-light text-stone-500">(Sabu Moopan)</span></h3>
+                <h3 class="text-xl sm:text-2xl font-medium tracking-wide">& Mrs. Shyna N.A</h3>
+                <p class="font-sans-labels text-[11px] tracking-widest text-stone-400 font-light pt-1">
+                    Moopan Manzil, Pazhambalacode P.O., Palakkad Dt.<br>
+                    Ph: 98475 80197, 98095 60305
+                </p>
+            </div>
+
+            <p class="text-lg text-stone-600 max-w-md mx-auto leading-relaxed mb-8 font-light italic animate__animated animate__fadeIn animate__delay-1s">
+                Cordially invite your esteemed presence with family on the auspicious occasion of the wedding of our son
+            </p>
+
+            <div class="my-6 animate__animated animate__fadeInUp animate__delay-2s">
+                <h1 class="text-5xl sm:text-6xl text-amber-800/90 font-light tracking-wide font-serif">Shahzad</h1>
+                <div class="max-w-md mx-auto text-xs text-stone-400 font-sans-labels font-light leading-relaxed mt-2 px-4">
+                    (Grand S/o. K. Ismail Moopan [Late] & K. U. Mariyakutty [Late]<br>
+                    and N. M. Abubacker [Late] & P. B. Fathima)
+                </div>
+            </div>
+
+            <div class="text-amber-700/50 text-4xl my-3 font-light select-none animate__animated animate__zoomIn animate__delay-2s flex items-center justify-center gap-4">
+                <span class="w-12 h-[0.5px] bg-amber-900/20"></span>
+                <span class="font-script text-5xl lowercase">with</span>
+                <span class="w-12 h-[0.5px] bg-amber-900/20"></span>
+            </div>
+
+            <div class="my-6 animate__animated animate__fadeInUp animate__delay-2s mb-12">
+                <h1 class="text-5xl sm:text-6xl text-amber-800/90 font-light tracking-wide font-serif">Farha</h1>
+                <div class="max-w-md mx-auto text-xs text-stone-400 font-sans-labels font-light leading-relaxed mt-2 px-4 space-y-1">
+                    <p class="text-stone-600 text-sm font-medium">D/o. Mr. Firosh Ussanar & Mrs. Khadeeja Firosh</p>
+                    <p class="text-[11px]">"Al Busthan" Vadakkenada, Kavassery P.O., Palakkad Dt.</p>
+                    <p class="text-[10px] pt-1">
+                        (Grand D/o. Ussanar Sahib [Late] & Sara Umma [Late]<br>
+                        and Syed Mohammed [Late] & Umaiba Beevi)
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-b border-amber-900/10 py-6 my-10 max-w-md mx-auto bg-stone-50/40">
+                <p class="font-sans-labels text-[9px] tracking-[0.3em] text-stone-400 font-semibold uppercase mb-4">Time Remaining Unto The Holy Union</p>
+                <div id="countdown-clock" class="flex justify-center gap-6 text-amber-900 font-light text-2xl sm:text-3xl tracking-wide">
+                    <div><span id="days-val" class="block font-medium tabular-nums">00</span><span class="text-[9px] uppercase font-sans-labels tracking-widest text-stone-400 font-medium">Days</span></div>
+                    <div><span id="hours-val" class="block font-medium tabular-nums">00</span><span class="text-[9px] uppercase font-sans-labels tracking-widest text-stone-400 font-medium">Hours</span></div>
+                    <div><span id="minutes-val" class="block font-medium tabular-nums">00</span><span class="text-[9px] uppercase font-sans-labels tracking-widest text-stone-400 font-medium">Mins</span></div>
+                    <div><span id="seconds-val" class="block font-medium tabular-nums">00</span><span class="text-[9px] uppercase font-sans-labels tracking-widest text-stone-400 font-medium">Secs</span></div>
+                </div>
+            </div>
+
+            <div class="max-w-md mx-auto mt-6">
+                <a href="https://maps.google.com/?q=Kalarikkal+Convention+Centre+Kuzhalmannam" target="_blank" 
+                   class="block p-6 bg-stone-50/60 border border-amber-900/10 rounded-xs hover:-translate-y-1 hover:border-amber-600/30 transition-all duration-300 group shadow-xs">
+                    
+                    <div class="mb-4">
+                        <span class="font-sans-labels text-[10px] tracking-[0.2em] text-amber-800 font-semibold uppercase block mb-1">Date & Timing</span>
+                        <h4 class="text-2xl text-stone-800 font-light font-serif">Saturday, 11th July 2026</h4>
+                        <p class="text-stone-400 text-xs font-sans-labels font-light mt-0.5">(1448 Muharam 26)</p>
+                        <p class="text-amber-900/80 text-sm font-sans-labels font-medium mt-1">Between 11:00 AM to 2:00 PM</p>
+                    </div>
+
+                    <div class="text-stone-700 text-sm border-t border-stone-200/80 pt-4 group-hover:text-amber-900 transition-colors">
+                        <span class="font-sans-labels text-[9px] tracking-widest text-stone-400 uppercase block mb-1">Venue Destination</span>
+                        <p class="text-base font-medium text-stone-800">Kalarikkal Convention Centre</p>
+                        <p class="text-xs text-stone-500 font-sans-labels font-light">Kulavanmukku, Kuzhalmannam, Palakkad</p>
+                        <div class="mt-3 inline-flex items-center gap-1.5 text-xs text-amber-700 font-sans-labels font-medium underline tracking-wider group-hover:text-amber-900">
+                            📍 View on Google Maps
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="mt-12 pt-4 border-t border-stone-100">
+                <p class="font-sans-labels text-[11px] tracking-widest text-stone-400 uppercase font-medium">
+                    Best compliments from : <span class="text-stone-600 font-semibold">Friends & Relatives</span>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Target Destination Wedding Date Metric: July 11, 2026 at 11:00:00 AM
+        const targetEventTimestamp = new Date("2026-07-11T11:00:00").getTime();
+
+        const internalCountdownTracker = setInterval(function() {
+            const currentSystemTimestamp = new Date().getTime();
+            const executionDeltaDistance = targetEventTimestamp - currentSystemTimestamp;
+
+            // Mathematical transformation divisions for time metrics
+            const parsedDays = Math.floor(executionDeltaDistance / (1000 * 60 * 60 * 24));
+            const parsedHours = Math.floor((executionDeltaDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const parsedMinutes = Math.floor((executionDeltaDistance % (1000 * 60 * 60)) / (1000 * 60));
+            const parsedSeconds = Math.floor((executionDeltaDistance % (1000 * 60)) / 1000);
+
+            // Directly updating DOM elements tracking state nodes
+            document.getElementById("days-val").innerText = String(parsedDays).padStart(2, '0');
+            document.getElementById("hours-val").innerText = String(parsedHours).padStart(2, '0');
+            document.getElementById("minutes-val").innerText = String(parsedMinutes).padStart(2, '0');
+            document.getElementById("seconds-val").innerText = String(parsedSeconds).padStart(2, '0');
+
+            // Evaluation block checking for expiration parameters
+            if (executionDeltaDistance < 0) {
+                clearInterval(internalCountdownTracker);
+                document.getElementById("countdown-clock").innerHTML = 
+                    "<p class='text-sm uppercase tracking-widest text-amber-800 font-sans-labels font-medium animate__animated animate__pulse animate__infinite'>The Marriage Celebration Has Commenced!</p>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
