@@ -1,191 +1,394 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation - Shahzad & Farha</title>
+    <title>The Union of Shahzad & Farha</title>
     
+    <!-- Tailwind CSS Engine -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- GSAP Animation Suite (Core, ScrollTrigger) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
+    <!-- Premium Google Typography Portfolio -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@100;200;300;400&family=Cinzel:wght@300;400;500&family=Amiri&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-gold-light: #fdfaf4;
-            --accent-gold: #bfa15f;
-            --text-dark: #2a2a2a;
-            --text-muted: #666666;
+            --luxury-cream: #faf7f2;
+            --charcoal-black: #161514;
+            --muted-gold: #c2a679;
+            --soft-blush: #f4eae6;
         }
 
         body {
-            background-color: var(--bg-gold-light);
+            background-color: var(--luxury-cream);
+            color: var(--charcoal-black);
             font-family: 'Cormorant Garamond', serif;
-            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        .font-arabic { font-family: 'Amiri', serif; }
-        .font-script { font-family: 'Pinyon Script', cursive; }
+        .font-editorial-serif { font-family: 'Cinzel', serif; }
         .font-sans-labels { font-family: 'Montserrat', sans-serif; }
+        .font-arabic { font-family: 'Amiri', serif; }
 
-        /* Floating Golden Petal Animation */
-        .floating-petal {
-            position: fixed;
-            pointer-events: none;
-            opacity: 0.18;
-            z-index: 1;
-            animation: driftUp 16s infinite linear;
-        }
-
-        @keyframes driftUp {
-            0% { transform: translateY(105vh) translateX(0) rotate(0deg); }
-            50% { transform: translateY(50vh) translateX(50px) rotate(180deg); }
-            100% { transform: translateY(-10vh) translateX(-20px) rotate(360deg); }
+        /* Premium Seamless Media Background Matrix Layers */
+        .hero-spatial-backdrop {
+            background: 
+                linear-gradient(to bottom, rgba(22, 21, 20, 0.4) 0%, rgba(250, 247, 242, 1) 100%),
+                url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1800&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
         }
 
-        /* Luxury Card Border Frame Style */
-        .luxury-frame {
-            border: 1px solid rgba(191, 161, 95, 0.25);
-            position: relative;
+        /* Continuous Ambient Liquid Gradient Core Canvas */
+        .liquid-gradient-wash {
+            background: radial-gradient(circle at 50% 50%, var(--soft-blush) 0%, rgba(250,247,242,0) 80%);
         }
-        .luxury-frame::before {
-            content: '';
-            position: absolute;
-            top: 10px; left: 10px; right: 10px; bottom: 10px;
-            border: 0.5px solid rgba(191, 161, 95, 0.15);
-            pointer-events: none;
+
+        /* Interactive Audio Indicator Wave Bars */
+        .audio-wave-bar {
+            width: 2px;
+            height: 4px;
+            background-color: var(--charcoal-black);
+            transform-origin: bottom;
+            animation: renderWave 1.2s infinite ease-in-out alternate;
         }
+        .audio-wave-bar:nth-child(2) { animation-delay: 0.15s; height: 8px; }
+        .audio-wave-bar:nth-child(3) { animation-delay: 0.35s; height: 12px; }
+        .audio-wave-bar:nth-child(4) { animation-delay: 0.5s; height: 6px; }
+
+        @keyframes renderWave {
+            0% { transform: scaleY(1); }
+            100% { transform: scaleY(3.2); }
+        }
+        .audio-paused-state .audio-wave-bar {
+            animation-play-state: paused !important;
+            transform: scaleY(0.4) !important;
+        }
+
+        /* Layout Scroll Utilities */
+        ::-webkit-scrollbar { display: none; }
+        .clip-line { overflow: hidden; }
     </style>
 </head>
-<body class="relative min-h-screen overflow-x-hidden flex flex-col items-center justify-center px-4 py-8 sm:py-16 selection:bg-amber-100">
+<body class="antialiased select-none">
 
-    <div class="fixed top-0 left-0 w-32 sm:w-48 h-32 sm:h-48 opacity-20 pointer-events-none z-0 bg-contain bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop'); transform: scaleX(-1);"></div>
-    <div class="fixed bottom-0 right-0 w-32 sm:w-48 h-32 sm:h-48 opacity-20 pointer-events-none z-0 bg-contain bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop');"></div>
+    <!-- 🎵 AMBIENT LOOP AUDIO CONTEXT ARCHITECTURE -->
+    <audio id="wedding-symphony" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mp3">
+    </audio>
 
-    <div class="floating-petal text-amber-600 text-xl" style="left: 8%; animation-delay: 0s; animation-duration: 14s;">🍃</div>
-    <div class="floating-petal text-amber-700 text-lg" style="left: 28%; animation-delay: 3s; animation-duration: 22s;">✨</div>
-    <div class="floating-petal text-amber-600 text-2xl" style="left: 60%; animation-delay: 1s; animation-duration: 18s;">🍃</div>
-    <div class="floating-petal text-amber-700 text-base" style="left: 85%; animation-delay: 6s; animation-duration: 13s;">✨</div>
+    <!-- 🚪 CINEMATIC LOADING INTERTAINMENT GATEWAY -->
+    <div id="loading-curtain" class="fixed inset-0 bg-[#161514] z-50 flex flex-col items-center justify-between py-16 px-6 transition-all duration-[1200ms] ease-[cubic-bezier(0.85,0,0.15,1)]">
+        <div class="text-center pt-12">
+            <span class="font-sans-labels text-[9px] tracking-[0.5em] text-stone-500 uppercase block mb-3">The Digital Portal of</span>
+            <h1 class="font-editorial-serif text-xl sm:text-2xl text-[#c2a679] tracking-[0.25em] font-light">SHAHZAD & FARHA</h1>
+        </div>
 
-    <div class="w-full max-w-2xl bg-white/80 backdrop-blur-sm p-3 rounded-xs shadow-2xl z-10 animate__animated animate__fadeInUp">
-        <div class="luxury-frame p-6 sm:p-14 text-center bg-gradient-to-b from-stone-50/40 via-white to-stone-50/20">
-            
-            <div class="font-arabic text-3xl sm:text-4xl tracking-wide text-amber-900/90 mb-1 animate__animated animate__fadeIn animate__delay-1s">
-                بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
-            </div>
-            <p class="font-sans-labels text-[10px] tracking-[0.18em] text-stone-400 font-light lowercase italic mb-8 animate__animated animate__fadeIn animate__delay-1s">
-                "In the name of Allah, the most beneficent and merciful"
-            </p>
+        <div class="text-center space-y-6">
+            <p class="font-sans-labels text-[10px] tracking-[0.2em] text-stone-400 uppercase">Palakkad, Kerala</p>
+            <button onclick="igniteCinematicSystem()" class="group relative px-12 py-4 border border-stone-800 rounded-full overflow-hidden transition-all duration-500 hover:border-[#c2a679]">
+                <span class="absolute inset-0 bg-[#c2a679] translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]"></span>
+                <span class="relative font-sans-labels text-[9px] tracking-[0.4em] uppercase text-stone-300 group-hover:text-stone-900 transition-colors duration-300">
+                    Enter Experience
+                </span>
+            </button>
+        </div>
 
-            <div class="space-y-1 mb-8 text-stone-800 animate__animated animate__fadeIn animate__delay-1s">
-                <h3 class="text-xl sm:text-2xl font-medium tracking-wide">Mr. Shahul Hameed <span class="text-base font-light text-stone-500">(Sabu Moopan)</span></h3>
-                <h3 class="text-xl sm:text-2xl font-medium tracking-wide">& Mrs. Shyna N.A</h3>
-                <p class="font-sans-labels text-[11px] tracking-widest text-stone-400 font-light pt-1">
-                    Moopan Manzil, Pazhambalacode P.O., Palakkad Dt.<br>
-                    Ph: 98475 80197, 98095 60305
-                </p>
-            </div>
-
-            <p class="text-lg text-stone-600 max-w-md mx-auto leading-relaxed mb-8 font-light italic animate__animated animate__fadeIn animate__delay-1s">
-                Cordially invite your esteemed presence with family on the auspicious occasion of the wedding of our son
-            </p>
-
-            <div class="my-6 animate__animated animate__fadeInUp animate__delay-2s">
-                <h1 class="text-5xl sm:text-6xl text-amber-800/90 font-light tracking-wide font-serif">Shahzad</h1>
-                <div class="max-w-md mx-auto text-xs text-stone-400 font-sans-labels font-light leading-relaxed mt-2 px-4">
-                    (Grand S/o. K. Ismail Moopan [Late] & K. U. Mariyakutty [Late]<br>
-                    and N. M. Abubacker [Late] & P. B. Fathima)
-                </div>
-            </div>
-
-            <div class="text-amber-700/50 text-4xl my-3 font-light select-none animate__animated animate__zoomIn animate__delay-2s flex items-center justify-center gap-4">
-                <span class="w-12 h-[0.5px] bg-amber-900/20"></span>
-                <span class="font-script text-5xl lowercase">with</span>
-                <span class="w-12 h-[0.5px] bg-amber-900/20"></span>
-            </div>
-
-            <div class="my-6 animate__animated animate__fadeInUp animate__delay-2s mb-12">
-                <h1 class="text-5xl sm:text-6xl text-amber-800/90 font-light tracking-wide font-serif">Farha</h1>
-                <div class="max-w-md mx-auto text-xs text-stone-400 font-sans-labels font-light leading-relaxed mt-2 px-4 space-y-1">
-                    <p class="text-stone-600 text-sm font-medium">D/o. Mr. Firosh Ussanar & Mrs. Khadeeja Firosh</p>
-                    <p class="text-[11px]">"Al Busthan" Vadakkenada, Kavassery P.O., Palakkad Dt.</p>
-                    <p class="text-[10px] pt-1">
-                        (Grand D/o. Ussanar Sahib [Late] & Sara Umma [Late]<br>
-                        and Syed Mohammed [Late] & Umaiba Beevi)
-                    </p>
-                </div>
-            </div>
-
-            <div class="border-t border-b border-amber-900/10 py-6 my-10 max-w-md mx-auto bg-stone-50/40">
-                <p class="font-sans-labels text-[9px] tracking-[0.3em] text-stone-400 font-semibold uppercase mb-4">Time Remaining Unto The Holy Union</p>
-                <div id="countdown-clock" class="flex justify-center gap-6 text-amber-900 font-light text-2xl sm:text-3xl tracking-wide">
-                    <div><span id="days-val" class="block font-medium tabular-nums">00</span><span class="text-[9px] uppercase font-sans-labels tracking-widest text-stone-400 font-medium">Days</span></div>
-                    <div><span id="hours-val" class="block font-medium tabular-nums">00</span><span class="text-[9px] uppercase font-sans-labels tracking-widest text-stone-400 font-medium">Hours</span></div>
-                    <div><span id="minutes-val" class="block font-medium tabular-nums">00</span><span class="text-[9px] uppercase font-sans-labels tracking-widest text-stone-400 font-medium">Mins</span></div>
-                    <div><span id="seconds-val" class="block font-medium tabular-nums">00</span><span class="text-[9px] uppercase font-sans-labels tracking-widest text-stone-400 font-medium">Secs</span></div>
-                </div>
-            </div>
-
-            <div class="max-w-md mx-auto mt-6">
-                <a href="https://maps.google.com/?q=Kalarikkal+Convention+Centre+Kuzhalmannam" target="_blank" 
-                   class="block p-6 bg-stone-50/60 border border-amber-900/10 rounded-xs hover:-translate-y-1 hover:border-amber-600/30 transition-all duration-300 group shadow-xs">
-                    
-                    <div class="mb-4">
-                        <span class="font-sans-labels text-[10px] tracking-[0.2em] text-amber-800 font-semibold uppercase block mb-1">Date & Timing</span>
-                        <h4 class="text-2xl text-stone-800 font-light font-serif">Saturday, 11th July 2026</h4>
-                        <p class="text-stone-400 text-xs font-sans-labels font-light mt-0.5">(1448 Muharam 26)</p>
-                        <p class="text-amber-900/80 text-sm font-sans-labels font-medium mt-1">Between 11:00 AM to 2:00 PM</p>
-                    </div>
-
-                    <div class="text-stone-700 text-sm border-t border-stone-200/80 pt-4 group-hover:text-amber-900 transition-colors">
-                        <span class="font-sans-labels text-[9px] tracking-widest text-stone-400 uppercase block mb-1">Venue Destination</span>
-                        <p class="text-base font-medium text-stone-800">Kalarikkal Convention Centre</p>
-                        <p class="text-xs text-stone-500 font-sans-labels font-light">Kulavanmukku, Kuzhalmannam, Palakkad</p>
-                        <div class="mt-3 inline-flex items-center gap-1.5 text-xs text-amber-700 font-sans-labels font-medium underline tracking-wider group-hover:text-amber-900">
-                            📍 View on Google Maps
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="mt-12 pt-4 border-t border-stone-100">
-                <p class="font-sans-labels text-[11px] tracking-widest text-stone-400 uppercase font-medium">
-                    Best compliments from <span class="text-stone-600 font-semibold">Family</span>
-                </p>
-            </div>
-
+        <div class="text-center">
+            <span class="font-sans-labels text-[8px] tracking-widest text-stone-600 uppercase">© 2026 The Moopan Wedding Portfolio</span>
         </div>
     </div>
 
+    <!-- 🔊 STICKY FLOATING HUD CUSTOM MEDIA PANEL -->
+    <div id="hud-audio-control" class="fixed top-6 right-6 z-40 opacity-0 transition-opacity duration-1000 pointer-events-auto">
+        <button onclick="toggleSymphonyPlaystate()" class="flex items-center gap-3.5 bg-white/70 backdrop-blur-xl border border-stone-200/50 pl-4 pr-5 py-2.5 rounded-full shadow-2xl hover:bg-white transition-all duration-300">
+            <div id="wave-visualizer" class="flex gap-[2.5px] items-center h-4 w-4 audio-paused-state">
+                <div class="audio-wave-bar"></div>
+                <div class="audio-wave-bar"></div>
+                <div class="audio-wave-bar"></div>
+                <div class="audio-wave-bar"></div>
+            </div>
+            <span class="font-sans-labels text-[8.5px] tracking-[0.3em] uppercase text-stone-800 font-medium">Sound Track</span>
+        </button>
+    </div>
+
+    <!-- 🪐 SECTION 1: MASTER HERO CINEMATIC HEADER -->
+    <section class="relative w-full h-screen hero-spatial-backdrop flex flex-col justify-between items-center text-center px-4 z-10">
+        <div class="pt-20 tracking-blocks">
+            <div class="font-arabic text-4xl text-white/90 tracking-wide mb-3">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+            <span class="font-sans-labels text-[9px] tracking-[0.5em] uppercase text-white/70 block">The Holy Union</span>
+        </div>
+
+        <div class="my-auto space-y-6 tracking-blocks">
+            <h2 class="font-editorial-serif text-4xl sm:text-6xl text-white tracking-[0.18em] font-light leading-tight">SHAHZAD <br class="sm:hidden"><span class="text-xl sm:text-2xl font-sans-labels font-light text-stone-300 tracking-widest block sm:inline my-4 sm:my-0 sm:mx-6">&</span> FARHA</h2>
+            <div class="w-12 h-[0.5px] bg-white/30 mx-auto"></div>
+            <span class="font-sans-labels text-[10px] tracking-[0.35em] uppercase text-stone-200 block">July 11, 2026</span>
+        </div>
+
+        <div class="pb-20 tracking-blocks">
+            <div class="text-white/40 font-sans-labels text-[9px] tracking-[0.25em] uppercase animate-pulse">
+                Scroll Down To Unveil
+            </div>
+            <div class="text-white/30 text-lg mt-2">↓</div>
+        </div>
+    </section>
+
+    <!-- 🌌 CONTAINER WRAPPER FOR EDITORIAL MATRIX SPACES -->
+    <div class="relative w-full liquid-gradient-wash">
+
+        <!-- 🕯️ SECTION 2: HOST MATRICES & INTRODUCTORY BRANDING -->
+        <section class="max-w-4xl mx-auto px-6 py-32 sm:py-48 text-center space-y-16 relative z-20">
+            <div class="gsap-reveal-text space-y-4">
+                <span class="font-sans-labels text-[9.5px] tracking-[0.4em] text-[#c2a679] uppercase font-medium block">Under the Divine Blessings of Allah</span>
+                <p class="text-xl sm:text-2xl text-stone-600 max-w-xl mx-auto font-light italic leading-relaxed">
+                    We request the honor of your esteemed presence to grace the auspicious marriage ceremony of our son
+                </p>
+            </div>
+
+            <div class="w-[0.5px] h-20 bg-stone-300 mx-auto gsap-reveal-text"></div>
+
+            <!-- Host Identity Blocks -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-center max-w-3xl mx-auto pt-4 font-editorial-serif">
+                <div class="gsap-reveal-text space-y-2">
+                    <span class="font-sans-labels text-[9px] tracking-[0.3em] text-stone-400 uppercase block mb-1">From The Family of The Groom</span>
+                    <h3 class="text-xl tracking-[0.12em] text-stone-800 font-medium">MR. SHAHUL HAMEED</h3>
+                    <p class="text-xs font-sans-labels font-light text-stone-400 lowercase tracking-widest">(Sabu Moopan)</p>
+                    <h3 class="text-xl tracking-[0.12em] text-stone-800 font-medium">& MRS. SHYNA N.A</h3>
+                    <p class="font-sans-labels text-[9px] tracking-widest text-stone-400 uppercase pt-2 font-light">Moopan Manzil, Pazhambalacode, Palakkad</p>
+                </div>
+
+                <div class="gsap-reveal-text space-y-2 border-t md:border-t-0 md:border-l border-stone-200 pt-8 md:pt-0 md:pl-12">
+                    <span class="font-sans-labels text-[9px] tracking-[0.3em] text-stone-400 uppercase block mb-1">From The Family of The Bride</span>
+                    <h3 class="text-xl tracking-[0.12em] text-stone-800 font-medium">MR. FIROSH USSANAR</h3>
+                    <h3 class="text-xl tracking-[0.12em] text-stone-800 font-medium">& MRS. KHADEEJA FIROSH</h3>
+                    <p class="font-sans-labels text-[9px] tracking-widest text-stone-400 uppercase pt-2 font-light">"Al Busthan" Vadakkenada, Kavassery, Palakkad</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 👑 SECTION 3: THE HIGH FASHION WEDDING COUPLING SPACE -->
+        <section class="max-w-5xl mx-auto px-6 py-24 border-t border-stone-200/60">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+                
+                <!-- Groom Portrait Info Layout Block -->
+                <div class="lg:col-span-2 text-center lg:text-right space-y-4 gsap-profile-left">
+                    <span class="font-sans-labels text-[9px] tracking-[0.4em] uppercase text-[#c2a679] font-medium block">The Groom</span>
+                    <h2 class="font-editorial-serif text-4xl sm:text-5xl tracking-[0.08em] font-light text-stone-900">SHAHZAD</h2>
+                    <div class="w-12 h-[1px] bg-stone-300 ml-auto mr-auto lg:mr-0 my-3"></div>
+                    <p class="font-sans-labels text-[9px] tracking-[0.18em] text-stone-400 uppercase leading-relaxed font-light">
+                        Grandson of Late K. Ismail Moopan & Late K. U. Mariyakutty <br>
+                        & Late N. M. Abubacker & P. B. Fathima
+                    </p>
+                </div>
+
+                <!-- Central Connector Layout Asset -->
+                <div class="lg:col-span-1 text-center py-6 lg:py-0 gsap-reveal-text">
+                    <span class="font-editorial-serif text-2xl text-stone-300 italic block font-light">With</span>
+                </div>
+
+                <!-- Bride Portrait Info Layout Block -->
+                <div class="lg:col-span-2 text-center lg:text-left space-y-4 gsap-profile-right">
+                    <span class="font-sans-labels text-[9px] tracking-[0.4em] uppercase text-[#c2a679] font-medium block">The Bride</span>
+                    <h2 class="font-editorial-serif text-4xl sm:text-5xl tracking-[0.08em] font-light text-stone-900">FARHA</h2>
+                    <div class="w-12 h-[1px] bg-stone-300 mr-auto ml-auto lg:ml-0 my-3"></div>
+                    <p class="font-sans-labels text-[9px] tracking-[0.18em] text-stone-400 uppercase leading-relaxed font-light">
+                        Granddaughter of Late Ussanar Sahib & Late Sara Umma <br>
+                        & Late Syed Mohammed & Umaiba Beevi
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ⏱️ SECTION 4: COORDINATE METRICS (TIME, VENUE, GPS ROUTING) -->
+        <section class="max-w-4xl mx-auto px-6 py-32 text-center space-y-16">
+            <div class="gsap-reveal-text text-center space-y-2">
+                <span class="font-sans-labels text-[9px] tracking-[0.4em] text-stone-400 uppercase block">The Celebration</span>
+                <h2 class="font-editorial-serif text-3xl font-light tracking-widest text-stone-900">TIME & LOGISTICS</h2>
+            </div>
+
+            <!-- Dual Information Layout Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                
+                <!-- Date Hub Card -->
+                <div class="gsap-card-element bg-white border border-stone-200/50 p-10 space-y-6 shadow-sm rounded-xs transition-shadow duration-500 hover:shadow-md">
+                    <span class="font-sans-labels text-[9px] tracking-[0.25em] text-[#c2a679] uppercase font-semibold block">Date & Schedule</span>
+                    <div class="space-y-1">
+                        <h4 class="font-editorial-serif text-xl text-stone-800 tracking-wide font-medium">Saturday, 11 July 2026</h4>
+                        <p class="text-stone-400 font-sans-labels text-[9.5px] tracking-widest uppercase font-light">1448 Muharram 26</p>
+                    </div>
+                    <div class="w-8 h-[0.5px] bg-stone-200 mx-auto"></div>
+                    <p class="font-sans-labels text-[11px] tracking-widest text-stone-700 uppercase font-medium bg-stone-50 py-2 rounded-xs border border-stone-100">
+                        11:00 AM — 2:00 PM
+                    </p>
+                </div>
+
+                <!-- Location Hub Card -->
+                <div class="gsap-card-element bg-white border border-stone-200/50 p-10 space-y-6 shadow-sm rounded-xs transition-shadow duration-500 hover:shadow-md flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <span class="font-sans-labels text-[9px] tracking-[0.25em] text-[#c2a679] uppercase font-semibold block">The Destination</span>
+                        <div class="space-y-1.5">
+                            <h4 class="font-editorial-serif text-xl text-stone-800 tracking-wide font-medium">Kalarikkal Convention Centre</h4>
+                            <p class="text-stone-400 font-sans-labels text-[9.5px] tracking-widest uppercase font-light">Kulavanmukku, Kuzhalmannam, Palakkad</p>
+                        </div>
+                    </div>
+                    <div class="pt-6">
+                        <a href="https://maps.google.com/?q=Kalarikkal+Convention+Centre+Kuzhalmannam" target="_blank" class="inline-block font-sans-labels text-[9px] tracking-[0.3em] text-stone-800 uppercase font-semibold border-b border-stone-900 pb-1.5 hover:text-[#c2a679] hover:border-[#c2a679] transition-all duration-300">
+                            Launch Navigation Map →
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Live Digital Countdown Counter Block -->
+            <div class="gsap-reveal-text max-w-xl mx-auto pt-12 border-t border-stone-200/60">
+                <span class="font-sans-labels text-[9px] tracking-[0.35em] text-stone-400 uppercase block mb-8">Counting Unto The Blessed Union</span>
+                <div id="live-countdown-clock" class="grid grid-cols-4 gap-4 font-editorial-serif text-3xl sm:text-4xl text-stone-800 font-light">
+                    <div><span id="days-span" class="block font-normal tabular-nums">00</span><span class="text-[9px] tracking-widest uppercase font-sans-labels text-stone-400 block mt-2">Days</span></div>
+                    <div><span id="hours-span" class="block font-normal tabular-nums">00</span><span class="text-[9px] tracking-widest uppercase font-sans-labels text-stone-400 block mt-2">Hours</span></div>
+                    <div><span id="minutes-span" class="block font-normal tabular-nums">00</span><span class="text-[9px] tracking-widest uppercase font-sans-labels text-stone-400 block mt-2">Mins</span></div>
+                    <div><span id="seconds-span" class="block font-normal tabular-nums">00</span><span class="text-[9px] tracking-widest uppercase font-sans-labels text-stone-400 block mt-2">Secs</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🏛️ SECTION 5: SIGN-OFF CONCLUSION MATRICES -->
+        <footer class="w-full text-center py-20 border-t border-stone-200/40 relative z-20">
+            <div class="space-y-3 gsap-reveal-text">
+                <p class="font-sans-labels text-[9.5px] tracking-[0.35em] text-stone-400 uppercase">
+                    With Compliments From <span class="text-stone-800 font-medium">The Moopan Family</span>
+                </p>
+                <div class="text-[11px] font-light text-stone-400 italic">We look forward to celebrating with you.</div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- UI Core Logic Framework Pipeline -->
     <script>
-        // Target Destination Wedding Date Metric: July 11, 2026 at 11:00:00 AM
-        const targetEventTimestamp = new Date("2026-07-11T11:00:00").getTime();
+        // Core Target Config Matrix Constants
+        const weddingTimestamp = new Date("2026-07-11T11:00:00").getTime();
+        const loopAudioContext = document.getElementById('wedding-symphony');
+        const visualizerDockElement = document.getElementById('wave-visualizer');
 
-        const internalCountdownTracker = setInterval(function() {
-            const currentSystemTimestamp = new Date().getTime();
-            const executionDeltaDistance = targetEventTimestamp - currentSystemTimestamp;
+        // Initialize GSAP Core Plugins
+        gsap.registerPlugin(ScrollTrigger);
 
-            // Mathematical transformation divisions for time metrics
-            const parsedDays = Math.floor(executionDeltaDistance / (1000 * 60 * 60 * 24));
-            const parsedHours = Math.floor((executionDeltaDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const parsedMinutes = Math.floor((executionDeltaDistance % (1000 * 60 * 60)) / (1000 * 60));
-            const parsedSeconds = Math.floor((executionDeltaDistance % (1000 * 60)) / 1000);
+        // Curtain Trigger Sequence Functionality
+        function igniteCinematicSystem() {
+            const curtain = document.getElementById('loading-curtain');
+            const hud = document.getElementById('hud-audio-control');
+            
+            // Slide up the loading curtain smoothly
+            curtain.style.transform = 'translateY(-100%)';
+            hud.classList.remove('opacity-0');
+            
+            // Initialize Audio Play context safely in real user gesture tracking block
+            loopAudioContext.volume = 0.35;
+            loopAudioContext.play().then(() => {
+                visualizerDockElement.classList.remove('audio-paused-state');
+            }).catch(e => console.log("Audio buffer track initialized manually via HUD controls."));
 
-            // Directly updating DOM elements tracking state nodes
-            document.getElementById("days-val").innerText = String(parsedDays).padStart(2, '0');
-            document.getElementById("hours-val").innerText = String(parsedHours).padStart(2, '0');
-            document.getElementById("minutes-val").innerText = String(parsedMinutes).padStart(2, '0');
-            document.getElementById("seconds-val").innerText = String(parsedSeconds).padStart(2, '0');
+            // Launch GSAP Spatial Animation Engine
+            initGsapSpatialAnimations();
+        }
 
-            // Evaluation block checking for expiration parameters
-            if (executionDeltaDistance < 0) {
-                clearInterval(internalCountdownTracker);
-                document.getElementById("countdown-clock").innerHTML = 
-                    "<p class='text-sm uppercase tracking-widest text-amber-800 font-sans-labels font-medium animate__animated animate__pulse animate__infinite'>The Marriage Celebration Has Commenced!</p>";
+        // Ambient Audio Operational Handlers
+        function toggleSymphonyPlaystate() {
+            if (loopAudioContext.paused) {
+                loopAudioContext.play();
+                visualizerDockElement.classList.remove('audio-paused-state');
+            } else {
+                loopAudioContext.pause();
+                visualizerDockElement.classList.add('audio-paused-state');
             }
+        }
+
+        // GSAP ScrollTrigger Integration Pipelines
+        function initGsapSpatialAnimations() {
+            // Fade block layers inside first view frame
+            gsap.from(".tracking-blocks", {
+                opacity: 0,
+                y: 40,
+                stagger: 0.25,
+                duration: 1.4,
+                ease: "power3.out"
+            });
+
+            // Smooth reveal scroll configuration loops
+            gsap.utils.toArray(".gsap-reveal-text").forEach(element => {
+                gsap.from(element, {
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 88%",
+                        toggleActions: "play none none none"
+                    },
+                    opacity: 0,
+                    y: 35,
+                    duration: 1.2,
+                    ease: "power2.out"
+                });
+            });
+
+            // Dual Asymmetric Coupling Profile Staggers
+            gsap.from(".gsap-profile-left", {
+                scrollTrigger: {
+                    trigger: ".gsap-profile-left",
+                    start: "top 85%"
+                },
+                opacity: 0,
+                x: -50,
+                duration: 1.4,
+                ease: "power3.out"
+            });
+
+            gsap.from(".gsap-profile-right", {
+                scrollTrigger: {
+                    trigger: ".gsap-profile-right",
+                    start: "top 85%"
+                },
+                opacity: 0,
+                x: 50,
+                duration: 1.4,
+                ease: "power3.out"
+            });
+
+            // Logistic Information Elements Display Matrix
+            gsap.from(".gsap-card-element", {
+                scrollTrigger: {
+                    trigger: ".gsap-card-element",
+                    start: "top 85%"
+                },
+                opacity: 0,
+                y: 45,
+                stagger: 0.2,
+                duration: 1.2,
+                ease: "power2.out"
+            });
+        }
+
+        // Live Operational Countdown Timer Engine Core Loop
+        setInterval(function() {
+            const systemTime = new Date().getTime();
+            const deltaDistance = weddingTimestamp - systemTime;
+
+            const days = Math.floor(deltaDistance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((deltaDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((deltaDistance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((deltaDistance % (1000 * 60)) / 1000);
+
+            document.getElementById("days-span").innerText = String(Math.max(0, days)).padStart(2, '0');
+            document.getElementById("hours-span").innerText = String(Math.max(0, hours)).padStart(2, '0');
+            document.getElementById("minutes-span").innerText = String(Math.max(0, minutes)).padStart(2, '0');
+            document.getElementById("seconds-span").innerText = String(Math.max(0, seconds)).padStart(2, '0');
         }, 1000);
     </script>
 </body>
